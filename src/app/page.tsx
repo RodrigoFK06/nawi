@@ -136,7 +136,7 @@ function BrandMark() {
   return (
     <a href="#inicio" className="flex items-center gap-3 group">
       <div className="relative w-10 h-10">
-        <img src="/nawi/logo-eye.png" alt="Ñawi" className="absolute inset-0 w-full h-full object-contain" />
+        <img src="/logo.svg" alt="Ñawi" className="absolute inset-0 w-full h-full object-contain" />
       </div>
       <span className="text-lg font-bold tracking-[0.28em] group-hover:text-orange-300">ÑAWI</span>
     </a>
@@ -167,7 +167,7 @@ function ReelModal({ onClose }: { onClose: () => void }) {
 
 function ScrollCue() {
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 bottom-6 text-xs tracking-widest uppercase text-white/70">
+    <div className="absolute left-1/2 -translate-x-1/2 bottom-12 text-xs tracking-widest uppercase text-white/70">
       <div className="h-10 w-[1px] mx-auto bg-gradient-to-b from-white/50 to-white/0 animate-pulse" />
       Desliza
     </div>
@@ -179,48 +179,18 @@ function ScrollCue() {
 function SelectedWorks() {
   const items: WorkCard[] = [
     {
-      title: "Raíces de Piedra",
+      title: "AYARANGA, tierra añorada",
       tag: "Documental",
       poster: "/nawi/raices-poster.jpg",
       preview: "/nawi/raices-preview.mp4",
-    },
-    {
-      title: "Amanecer en Qocha",
-      tag: "Brand Film",
-      poster: "/nawi/qocha-poster.jpg",
-      preview: "/nawi/qocha-preview.mp4",
-    },
-    {
-      title: "Punto de Quiebre",
-      tag: "Ficción",
-      poster: "/nawi/pdq-poster.jpg",
-      preview: "/nawi/pdq-preview.mp4",
-    },
-    {
-      title: "La Voz del Barro",
-      tag: "Corto",
-      poster: "/nawi/barro-poster.jpg",
-      preview: "/nawi/barro-preview.mp4",
-    },
-    {
-      title: "Cacao Vivo",
-      tag: "Comercial",
-      poster: "/nawi/cacao-poster.jpg",
-      preview: "/nawi/cacao-preview.mp4",
-    },
-    {
-      title: "Sutura",
-      tag: "Videoarte",
-      poster: "/nawi/sutura-poster.jpg",
-      preview: "/nawi/sutura-preview.mp4",
-    },
+    }
   ];
 
   return (
     <section id="trabajos" className="relative py-24 md:py-32">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
       <div className="px-6 md:px-10 max-w-7xl mx-auto">
-        <HeaderEyebrow title="Selección de trabajos" kicker="Narrativa + Estética" subtitle="Cine, documental y piezas de marca con obsesión por la textura." />
+        <HeaderEyebrow title="Próximo lanzamiento" kicker="Narrativa + Estética" subtitle="Nuestro proyecto de cine documental." />
 
         <div className="mt-10 grid md:grid-cols-3 gap-4 md:gap-6">
           {items.map((it, i) => (
@@ -450,7 +420,7 @@ function Footer() {
     <footer className="relative border-t border-white/10 py-10 text-white/60 text-sm">
       <div className="px-6 md:px-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <img src="/nawi/logo-eye.png" alt="Ñawi" className="w-7 h-7" />
+          <img src="/logo.svg" alt="Ñawi" className="w-7 h-7" />
           <span className="tracking-[0.28em]">ÑAWI</span>
         </div>
         <p>© {new Date().getFullYear()} ÑAWI Productora. Todos los derechos reservados.</p>
