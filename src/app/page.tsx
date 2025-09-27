@@ -135,10 +135,9 @@ function Hero() {
 function BrandMark() {
   return (
     <a href="#inicio" className="flex items-center gap-3 group">
-      <div className="relative w-10 h-10">
+      <div className="relative w-50 h-30">
         <img src="/logo.svg" alt="Ñawi" className="absolute inset-0 w-full h-full object-contain" />
       </div>
-      <span className="text-lg font-bold tracking-[0.28em] group-hover:text-orange-300">ÑAWI</span>
     </a>
   );
 }
@@ -420,8 +419,8 @@ function Footer() {
     <footer className="relative border-t border-white/10 py-10 text-white/60 text-sm">
       <div className="px-6 md:px-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <img src="/logo.svg" alt="Ñawi" className="w-7 h-7" />
-          <span className="tracking-[0.28em]">ÑAWI</span>
+          <img src="/logo.svg" alt="Ñawi" className="w-40 h-20" />
+          
         </div>
         <p>© {new Date().getFullYear()} ÑAWI Productora. Todos los derechos reservados.</p>
       </div>
