@@ -13,7 +13,7 @@ export default function NawiLanding() {
       <Manifesto />
       <Capabilities />
       <Pipeline />
-      <ClientsAwards />
+      {/*<ClientsAwards />*/}
       <Team />
       <Contact />
       <Footer />
@@ -94,9 +94,9 @@ function Hero() {
                 CINE PARA DESPERTAR
               </span>
             </h1>
-            <p className="max-w-xl text-lg md:text-xl text-white/80">
+            {/*<p className="max-w-xl text-lg md:text-xl text-white/80">
               Productora audiovisual que filma con luz de amanecer: estética exigente, narrativa con carácter y una obsesión por el detalle.
-            </p>
+            </p>*/}
             <div className="flex flex-wrap gap-4">
               <a
                 onClick={() => setOpen(true)}
@@ -110,7 +110,7 @@ function Hero() {
             </div>
           </motion.div>
 
-          <motion.aside
+         {/* <motion.aside
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.9 }}
@@ -120,7 +120,7 @@ function Hero() {
             <p className="text-lg leading-relaxed text-white/90">
               Resaltamos la importancia de espacios y memorias para fortalecer la identidad cultural y abrir diálogo sobre su protección. Contamos historias que quedan.
             </p>
-          </motion.aside>
+          </motion.aside>*/}
         </div>
       </div>
 
@@ -176,12 +176,14 @@ function ScrollCue() {
 // ——————————————————————————————————————————————————————————
 // SELECTED WORKS (mosaic)
 function SelectedWorks() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  
   const items: WorkCard[] = [
     {
       title: "AYARANGA, tierra añorada",
       tag: "Documental",
-      poster: "/nawi/raices-poster.jpg",
-      preview: "/nawi/raices-preview.mp4",
+      poster: "/nawipreview.png",
+      preview: "/nawi.mp4",
     }
   ];
 
@@ -191,9 +193,15 @@ function SelectedWorks() {
       <div className="px-6 md:px-10 max-w-7xl mx-auto">
         <HeaderEyebrow title="Próximo lanzamiento" kicker="Narrativa + Estética" subtitle="Nuestro proyecto de cine documental." />
 
-        <div className="mt-10 grid md:grid-cols-3 gap-4 md:gap-6">
+        <div className="mt-10 grid md:grid-cols-1 gap-4 md:gap-6">
           {items.map((it, i) => (
-            <WorkTile key={i} {...it} priority={i < 3} />
+            <WorkTile 
+              key={i} 
+              {...it} 
+              priority={i < 3}
+              isExpanded={expandedIndex === i}
+              onToggle={() => setExpandedIndex(expandedIndex === i ? null : i)}
+            />
           ))}
         </div>
       </div>
@@ -208,31 +216,89 @@ type WorkCard = {
   preview: string;
 };
 
-function WorkTile({ title, tag, poster, preview, priority }: WorkCard & { priority?: boolean }) {
+function WorkTile({ 
+  title, 
+  tag, 
+  poster, 
+  preview, 
+  priority,
+  isExpanded,
+  onToggle 
+}: WorkCard & { 
+  priority?: boolean;
+  isExpanded?: boolean;
+  onToggle?: () => void;
+}) {
   const [hover, setHover] = useState(false);
+
   return (
     <motion.article
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20%" }}
       transition={{ duration: 0.6 }}
-      className="group relative aspect-[4/5] overflow-hidden rounded-3xl ring-1 ring-white/10 bg-white/5"
+      className={`relative overflow-hidden rounded-3xl ring-1 ring-white/10 bg-white/5 transition-all duration-700 ${
+        isExpanded ? 'h-[70vh]' : 'h-[400px]'
+      }`}
     >
-      {hover ? (
-        <video className="absolute inset-0 h-full w-full object-cover" muted playsInline autoPlay loop poster={poster}>
-          <source src={preview} type="video/mp4" />
-        </video>
-      ) : (
-        <img src={poster} alt={title} className="absolute inset-0 h-full w-full object-cover" />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/0 opacity-80" />
-      <div className="absolute bottom-0 p-5">
-        <span className="inline-block text-[10px] tracking-widest uppercase text-white/70 mb-1">{tag}</span>
-        <h3 className="text-xl font-semibold">{title}</h3>
+      <div className="h-full flex">
+        {/* Tarjeta del proyecto (lado izquierdo cuando está expandido) */}
+        <div 
+          className={`relative overflow-hidden transition-all duration-700 flex-shrink-0 ${
+            isExpanded ? 'w-[280px] md:w-[350px]' : 'w-full'
+          }`}
+          onMouseEnter={() => !isExpanded && setHover(true)}
+          onMouseLeave={() => !isExpanded && setHover(false)}
+        >
+          {hover && !isExpanded ? (
+            <video className="absolute inset-0 h-full w-full object-cover" muted playsInline autoPlay loop poster={poster}>
+              <source src={preview} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={poster} alt={title} className="absolute inset-0 h-full w-full object-cover" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/0 opacity-80" />
+          
+          <div className="absolute bottom-0 left-0 right-0 p-5">
+            <span className="inline-block text-[10px] tracking-widest uppercase text-white/70 mb-1">{tag}</span>
+            <h3 className="text-xl font-semibold">{title}</h3>
+          </div>
+          
+          <button
+            onClick={onToggle}
+            className="absolute top-4 right-4 px-3 py-2 rounded-full text-[10px] tracking-widest uppercase bg-white/10 ring-1 ring-white/20 backdrop-blur-sm hover:bg-white/20 transition cursor-pointer"
+          >
+            {isExpanded ? 'CERRAR' : 'PLAY'}
+          </button>
+        </div>
+
+        {/* Video expandido (lado derecho) */}
+        <div 
+          className={`relative flex-1 bg-black transition-all duration-700 overflow-hidden ${
+            isExpanded ? 'opacity-100 w-full' : 'opacity-0 w-0'
+          }`}
+        >
+          {isExpanded && (
+            <div className="h-full w-full flex items-center justify-center p-6">
+              <video 
+                className="h-full w-full object-contain rounded-lg" 
+                controls 
+                autoPlay
+                poster={poster}
+              >
+                <source src={preview} type="video/mp4" />
+              </video>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-[10px] tracking-widest uppercase bg-white/10 ring-1 ring-white/20">Play</div>
+
+      {/* Texto indicativo cuando está expandido */}
+      {isExpanded && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50 pointer-events-none">
+          Extender cuadro (video también acá)
+        </div>
+      )}
     </motion.article>
   );
 }
@@ -240,7 +306,7 @@ function WorkTile({ title, tag, poster, preview, priority }: WorkCard & { priori
 function HeaderEyebrow({ kicker, title, subtitle }: { kicker?: string; title: string; subtitle?: string }) {
   return (
     <div className="max-w-3xl">
-      {kicker && <p className="text-xs uppercase tracking-[0.3em] text-orange-300/90">{kicker}</p>}
+      {/*{kicker && <p className="text-xs uppercase tracking-[0.3em] text-orange-300/90">{kicker}</p>}*/}
       <h2 className="mt-3 text-3xl md:text-5xl font-black leading-[1.05]">{title}</h2>
       {subtitle && <p className="mt-3 text-base md:text-lg text-white/70">{subtitle}</p>}
     </div>
@@ -331,7 +397,7 @@ function Pipeline() {
 }
 
 // ——————————————————————————————————————————————————————————
-// CLIENTS & AWARDS
+{/*// CLIENTS & AWARDS
 function ClientsAwards() {
   const logos = ["marca1.svg", "marca2.svg", "marca3.svg", "marca4.svg", "marca5.svg", "marca6.svg"];
   return (
@@ -350,6 +416,7 @@ function ClientsAwards() {
     </section>
   );
 }
+*/}
 
 // ——————————————————————————————————————————————————————————
 // TEAM
