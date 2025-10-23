@@ -4,6 +4,13 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Camera, Clapperboard, Palette, Wand2, AudioLines, Rocket, Mail, Phone, MapPin } from "lucide-react";
 
+// --- Importaciones de componentes modulares ---
+import { Noise, Glow } from "@/components/Visuals";
+import { HeaderEyebrow } from "@/components/HeaderEyebrow";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+// ---------------------------------------------
+
 export default function NawiLanding() {
   return (
     <main className="relative min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden selection:bg-orange-500/40 selection:text-white">
@@ -14,31 +21,9 @@ export default function NawiLanding() {
       <Capabilities />
       <Pipeline />
       {/*<ClientsAwards />*/}
-      <Team />
       <Contact />
       <Footer />
     </main>
-  );
-}
-
-// ——————————————————————————————————————————————————————————
-// Visual helpers
-function Noise() {
-  return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 mix-blend-soft-light opacity-[0.32] [background-image:url('/nawi/noise.png')] [background-size:300px]" />
-  );
-}
-
-function Glow({ className = "" }: { className?: string }) {
-  return (
-    <div
-      aria-hidden
-      className={`absolute blur-3xl rounded-full opacity-40 ${className}`}
-      style={{
-        background:
-          "radial-gradient( circle at 30% 30%, rgba(255,161,22,0.9), rgba(255,88,46,0.8) 40%, rgba(255,88,46,0.0) 60%)",
-      }}
-    />
   );
 }
 
@@ -69,18 +54,13 @@ function Hero() {
         <Glow className="w-[46rem] h-[46rem] right-[-10rem] bottom-[-6rem]" />
       </motion.div>
 
-      <div className="relative px-6 md:px-10 max-w-7xl mx-auto w-full">
-        <div className="flex items-center justify-between gap-6 pt-6">
-          <BrandMark />
-          <nav className="hidden md:flex gap-8 text-sm tracking-widest uppercase text-white/80">
-            <a href="#trabajos" className="hover:text-white">Trabajos</a>
-            <a href="#manifiesto" className="hover:text-white">Manifiesto</a>
-            <a href="#servicios" className="hover:text-white">Servicios</a>
-            <a href="#equipo" className="hover:text-white">Equipo</a>
-            <a href="#contacto" className="hover:text-white">Contacto</a>
-          </nav>
-        </div>
+      {/* --- NAVEGACIÓN ACTUALIZADA --- */}
+      <div className="absolute top-0 left-0 right-0">
+        <Navigation />
+      </div>
+      {/* ------------------------------- */}
 
+      <div className="relative px-6 md:px-10 max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-[1.2fr_.8fr] items-center gap-10 pt-20 md:pt-28">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -94,9 +74,6 @@ function Hero() {
                 CINE PARA DESPERTAR
               </span>
             </h1>
-            {/*<p className="max-w-xl text-lg md:text-xl text-white/80">
-              Productora audiovisual que filma con luz de amanecer: estética exigente, narrativa con carácter y una obsesión por el detalle.
-            </p>*/}
             <div className="flex flex-wrap gap-4">
               <a
                 onClick={() => setOpen(true)}
@@ -109,18 +86,6 @@ function Hero() {
               </a>
             </div>
           </motion.div>
-
-         {/* <motion.aside
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.9 }}
-            className="rounded-3xl bg-white/5 backdrop-blur-md ring-1 ring-white/10 p-6 md:p-8 space-y-4"
-          >
-            <p className="text-sm uppercase tracking-widest text-white/60">Propósito</p>
-            <p className="text-lg leading-relaxed text-white/90">
-              Resaltamos la importancia de espacios y memorias para fortalecer la identidad cultural y abrir diálogo sobre su protección. Contamos historias que quedan.
-            </p>
-          </motion.aside>*/}
         </div>
       </div>
 
@@ -129,16 +94,6 @@ function Hero() {
 
       <ScrollCue />
     </section>
-  );
-}
-
-function BrandMark() {
-  return (
-    <a href="#inicio" className="flex items-center gap-3 group">
-      <div className="relative w-50 h-30">
-        <img src="/logo.svg" alt="Ñawi" className="absolute inset-0 w-full h-full object-contain" />
-      </div>
-    </a>
   );
 }
 
@@ -303,16 +258,6 @@ function WorkTile({
   );
 }
 
-function HeaderEyebrow({ kicker, title, subtitle }: { kicker?: string; title: string; subtitle?: string }) {
-  return (
-    <div className="max-w-3xl">
-      {/*{kicker && <p className="text-xs uppercase tracking-[0.3em] text-orange-300/90">{kicker}</p>}*/}
-      <h2 className="mt-3 text-3xl md:text-5xl font-black leading-[1.05]">{title}</h2>
-      {subtitle && <p className="mt-3 text-base md:text-lg text-white/70">{subtitle}</p>}
-    </div>
-  );
-}
-
 // ——————————————————————————————————————————————————————————
 // MANIFESTO
 function Manifesto() {
@@ -419,35 +364,6 @@ function ClientsAwards() {
 */}
 
 // ——————————————————————————————————————————————————————————
-// TEAM
-function Team() {
-  const people = [
-    { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
-    { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
-    { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
-  ];
-  return (
-    <section id="equipo" className="relative py-24 md:py-28">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto">
-        <HeaderEyebrow title="Equipo nuclear" subtitle="Armamos células a medida con colaboradores de confianza." />
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          {people.map((p, i) => (
-            <motion.figure key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="relative overflow-hidden rounded-3xl ring-1 ring-white/10">
-              <img src={p.photo} alt={p.name} className="h-80 w-full object-cover" />
-              <figcaption className="p-5 bg-white/5 backdrop-blur-sm">
-                <div className="font-semibold">{p.name}</div>
-                <div className="text-white/70 text-sm">{p.role}</div>
-              </figcaption>
-            </motion.figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ——————————————————————————————————————————————————————————
 // CONTACT
 function Contact() {
   return (
@@ -476,21 +392,5 @@ function Contact() {
         </form>
       </div>
     </section>
-  );
-}
-
-// ——————————————————————————————————————————————————————————
-// FOOTER
-function Footer() {
-  return (
-    <footer className="relative border-t border-white/10 py-10 text-white/60 text-sm">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <img src="/logo.svg" alt="Ñawi" className="w-40 h-20" />
-          
-        </div>
-        <p>© {new Date().getFullYear()} ÑAWI Productora. Todos los derechos reservados.</p>
-      </div>
-    </footer>
   );
 }
