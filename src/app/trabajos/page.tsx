@@ -20,11 +20,11 @@ const YOUTUBE_LINK = "https://www.youtube.com/watch?v=XXXXXXXXX"; // <-- ¡¡REE
 const PROJECT_TITLE = "AYARANGA TIERRA AÑORADA";
 const PROJECT_TAG = "Documental";
 
-// --- DATOS PARA EL MOSAICO (sin cambios) ---
+// --- DATOS PARA EL MOSAICO (ampliado a 30 imágenes por categoría) ---
 const allImages = {
-  scouting: Array.from({ length: 16 }, (_, i) => ({ id: `scout-${i + 1}`, src: i % 3 === 0 ? `https://via.placeholder.com/800x600/222/888?text=Scout+${i + 1}` : `https://via.placeholder.com/600x800/222/888?text=Scout+${i + 1}` })),
-  momentos: Array.from({ length: 12 }, (_, i) => ({ id: `mom-${i + 1}`, src: i % 2 === 0 ? `https://via.placeholder.com/800x600/333/999?text=Mom+${i + 1}` : `https://via.placeholder.com/600x800/333/999?text=Mom+${i + 1}` })),
-  corte: Array.from({ length: 18 }, (_, i) => ({ id: `corte-${i + 1}`, src: i % 4 === 0 ? `https://via.placeholder.com/800x600/444/aaa?text=Corte+${i + 1}` : `https://via.placeholder.com/600x800/444/aaa?text=Corte+${i + 1}` })),
+  scouting: Array.from({ length: 30 }, (_, i) => ({ id: `scout-${i + 1}`, src: i % 3 === 0 ? `https://via.placeholder.com/800x600/222/888?text=Scout+${i + 1}` : `https://via.placeholder.com/600x800/222/888?text=Scout+${i + 1}` })),
+  momentos: Array.from({ length: 30 }, (_, i) => ({ id: `mom-${i + 1}`, src: i % 2 === 0 ? `https://via.placeholder.com/800x600/333/999?text=Mom+${i + 1}` : `https://via.placeholder.com/600x800/333/999?text=Mom+${i + 1}` })),
+  corte: Array.from({ length: 30 }, (_, i) => ({ id: `corte-${i + 1}`, src: i % 4 === 0 ? `https://via.placeholder.com/800x600/444/aaa?text=Corte+${i + 1}` : `https://via.placeholder.com/600x800/444/aaa?text=Corte+${i + 1}` })),
 };
 
 type ImageItem = { id: string; src: string };
@@ -94,10 +94,12 @@ export default function TrabajosPage() {
             )}
           </div>
 
-          {/* Componente MasonryGrid (sin setItems) */}
+          {/* Componente MasonryGrid con rotación automática */}
           <MasonryGrid
-            items={displayedImages} // Pasamos las imágenes filtradas
+            items={displayedImages}
             onImageClick={setSelectedImage}
+            maxItems={12} // Mostrar 12 imágenes a la vez
+            autoRotateInterval={5000} // Cambiar cada 5 segundos
           />
 
         </div>

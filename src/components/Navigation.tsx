@@ -14,6 +14,7 @@ export function Navigation() {
           <Link href="/trabajos" className="hover:text-white">Trabajos</Link> 
           <Link href="/#manifiesto" className="hover:text-white">Manifiesto</Link>
           <Link href="/#servicios" className="hover:text-white">Servicios</Link>
+          <Link href="/galeria" className="hover:text-white">Galería</Link>
           <Link href="/nosotros" className="hover:text-white">Nosotros</Link>
           <Link href="/#contacto" className="hover:text-white">Contacto</Link>
         </nav>
