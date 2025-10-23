@@ -15,6 +15,13 @@ const teamPeople = [
   { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
   { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
   { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
+  { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
+  { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
+  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
+  { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
+  { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
+  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
+  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
 ];
 
 // --- NUEVA SECCIÓN: Datos de Valores ---

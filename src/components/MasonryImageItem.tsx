@@ -14,18 +14,13 @@ type MasonryImageItemProps = {
 };
 
 export function MasonryImageItem({ item, index, onClick }: MasonryImageItemProps) {
-  // Determinamos el aspect ratio basado en el índice para variedad visual
-  // Variamos entre vertical (3:4), horizontal (4:3) y cuadrado para un layout más dinámico
-  const aspectRatios = ['aspect-[3/4]', 'aspect-[4/3]', 'aspect-square', 'aspect-[3/4]', 'aspect-[4/3]'];
-  const aspect = aspectRatios[index % aspectRatios.length];
-  
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, delay: index * 0.02 }}
-      className={`relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 group cursor-pointer w-full ${aspect}`}
+      className="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 group cursor-pointer w-full h-full"
       onClick={() => onClick(item.src)}
     >
       <Image
