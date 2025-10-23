@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Camera, Clapperboard, Palette, Wand2, AudioLines, Rocket, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 // --- Importaciones de componentes modulares ---
 import { Noise, Glow } from "@/components/Visuals";
@@ -139,14 +140,13 @@ function SelectedWorks() {
     <section id="trabajos" className="relative py-24 md:py-32">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
       <div className="px-6 md:px-10 max-w-7xl mx-auto">
-        <HeaderEyebrow title="Próximo lanzamiento" kicker="Narrativa + Estética" subtitle="Nuestro proyecto de cine documental." />
+        <HeaderEyebrow title="Próximo lanzamiento" subtitle="Nuestro proyecto de cine documental." />
 
         <div className="mt-10 grid md:grid-cols-1 gap-4 md:gap-6">
           {items.map((it, i) => (
             <WorkTile 
               key={i} 
               {...it} 
-              priority={i < 3}
               isExpanded={expandedIndex === i}
               onToggle={() => setExpandedIndex(expandedIndex === i ? null : i)}
             />
@@ -169,11 +169,9 @@ function WorkTile({
   tag, 
   poster, 
   preview, 
-  priority,
   isExpanded,
   onToggle 
 }: WorkCard & { 
-  priority?: boolean;
   isExpanded?: boolean;
   onToggle?: () => void;
 }) {
@@ -203,7 +201,7 @@ function WorkTile({
               <source src={preview} type="video/mp4" />
             </video>
           ) : (
-            <img src={poster} alt={title} className="absolute inset-0 h-full w-full object-cover" />
+            <Image src={poster} alt={title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 350px" />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/0 opacity-80" />
           
@@ -278,7 +276,7 @@ function Capabilities() {
   return (
     <section id="servicios" className="relative py-24 md:py-32">
       <div className="px-6 md:px-10 max-w-7xl mx-auto">
-        <HeaderEyebrow title="Lo que hacemos" kicker="Capacidades" subtitle="De la semilla al estreno. Equipo modular según el proyecto." />
+        <HeaderEyebrow title="Lo que hacemos" subtitle="De la semilla al estreno. Equipo modular según el proyecto." />
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {caps.map((c, i) => (
             <motion.div
@@ -311,7 +309,7 @@ function Pipeline() {
   return (
     <section className="relative py-24">
       <div className="px-6 md:px-10 max-w-6xl mx-auto">
-        <HeaderEyebrow title="Cómo trabajamos" kicker="Pipeline" />
+        <HeaderEyebrow title="Cómo trabajamos" />
         <div className="mt-10 grid md:grid-cols-4 gap-5">
           {steps.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}

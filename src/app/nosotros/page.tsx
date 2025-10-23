@@ -2,6 +2,7 @@
 'use client'
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 // Importamos los nuevos íconos para 'Valores'
 import { Target, Eye, Rocket, Sparkles, HeartHandshake, Award } from "lucide-react";
 import { Noise, Glow } from "@/components/Visuals";
@@ -194,7 +195,9 @@ export default function NosotrosPage() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 group"
               >
-                <img src={p.photo} alt={p.name} className="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="relative h-80 w-full">
+                  <Image src={p.photo} alt={p.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"/>
                 <figcaption className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 to-transparent">
                   <div className="font-semibold text-lg">{p.name}</div>
