@@ -2,32 +2,37 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { Camera } from "lucide-react";
+// Importamos los nuevos íconos para 'Valores'
+import { Target, Eye, Rocket, Sparkles, HeartHandshake, Award } from "lucide-react";
 import { Noise, Glow } from "@/components/Visuals";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { HeaderEyebrow } from "@/components/HeaderEyebrow";
 
-// Datos del equipo (los mismos que tenías)
+// Datos del equipo
 const teamPeople = [
   { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
   { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
   { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
 ];
 
-// Datos de herramientas (del ejemplo que diste)
-const tools = [
-  "Panasonic Lumix GH4",
-  "Canon 5D Mark III",
-  "Estabilizador Ronin S",
-  "Micrófono Rode NTG4",
-  "Grabadora Zoom H4N Pro",
-  "Kino Flo",
-  "Dolly",
-  "Monitor HD Neewerd",
-  "Drone DJI Phantom",
-  "Studio Fotográfico",
-  "Canon 60D",
+// --- NUEVA SECCIÓN: Datos de Valores ---
+const valores = [
+  {
+    icon: Sparkles,
+    title: "Creatividad",
+    desc: "Buscamos ángulos únicos y soluciones visuales que sorprendan y conecten."
+  },
+  {
+    icon: HeartHandshake,
+    title: "Compromiso",
+    desc: "Nos apasiona cada proyecto, cuidando cada detalle desde la idea hasta la entrega final."
+  },
+  {
+    icon: Award,
+    title: "Calidad",
+    desc: "Perseguimos la excelencia técnica y narrativa en cada fotograma que producimos."
+  }
 ];
 
 export default function NosotrosPage() {
@@ -37,69 +42,146 @@ export default function NosotrosPage() {
       
       {/* --- Encabezado --- */}
       <header className="relative isolate pt-4 pb-24 md:pb-32">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/80 to-[#0A0A0A]" />
-        <Glow className="w-[52rem] h-[52rem] -left-40 -top-24" />
+        <div className="absolute inset-0 -z-10 opacity-30">
+           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+        </div>
+        <Glow className="w-[52rem] h-[52rem] -left-40 -top-24 opacity-30" />
         <Navigation />
         <div className="px-6 md:px-10 max-w-5xl mx-auto text-center mt-20 md:mt-28">
-          <h1 className="text-5xl md:text-7xl leading-[0.95] font-black tracking-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-5xl md:text-7xl leading-[0.95] font-black tracking-tight"
+          >
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">
               NOSOTROS
             </span>
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto"
+          >
             12 años en el mercado; experiencia, tecnología y creatividad para contar historias que quedan.
-          </p>
+          </motion.p>
         </div>
       </header>
 
       {/* --- Quiénes Somos y Creencias --- */}
       <section className="relative py-24 md:py-32 border-t border-white/10">
         <Glow className="w-[40rem] h-[40rem] -right-32 top-10" />
-        <div className="px-6 md:px-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div className="max-w-xl">
+        <div className="px-6 md:px-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+          {/* Quiénes somos */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.8 }}
+          >
             <HeaderEyebrow 
               title="¿Quiénes somos?" 
-              subtitle="Somos un equipo de comunicadores audiovisuales con experiencia en las diversas áreas de la comunicación. Ofrecemos videos de diferentes estilos y formatos con un concepto creativo. Brindamos la asesoría necesaria para que tu video se adecue a tus necesidades."
             />
-          </div>
-          <div className="max-w-xl">
-            <HeaderEyebrow 
+            <p className="mt-4 text-white/80 text-lg leading-relaxed">
+              Somos un equipo de comunicadores audiovisuales con experiencia en las diversas áreas de la comunicación. Ofrecemos videos de diferentes estilos y formatos con un concepto creativo. Brindamos la asesoría necesaria para que tu video se adecue a tus necesidades.
+            </p>
+          </motion.div>
+          
+          {/* --- CÓDIGO CORREGIDO (NEGRITAS) --- */}
+           <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+             <HeaderEyebrow 
               title="¿En qué creemos?"
-              subtitle="Creemos en lo visual, el sonido y el movimiento como los mecanismos más impactantes de comunicación. En los mensajes claros, directos y sencillos como clave para acercarse al Target. En la eficacia de los mensajes para generar emoción e identificación."
             />
-          </div>
+             <ul className="mt-4 space-y-3 text-white/80 text-lg">
+               <li className="flex items-start gap-3">
+                 <Target className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
+                 <span>
+                   Creemos en lo <span className="font-semibold text-white">visual, el sonido y el movimiento</span> como los mecanismos más impactantes de comunicación.
+                 </span>
+               </li>
+               <li className="flex items-start gap-3">
+                 <Target className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
+                 <span>
+                   En los <span className="font-semibold text-white">mensajes claros, directos y sencillos</span> como clave para acercarse al Target.
+                 </span>
+               </li>
+                <li className="flex items-start gap-3">
+                 <Target className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
+                 <span>
+                   En la eficacia de los mensajes para generar <span className="font-semibold text-white">emoción e identificación</span>.
+                 </span>
+               </li>
+             </ul>
+           </motion.div>
         </div>
       </section>
 
-      {/* --- Herramientas --- */}
-      <section id="herramientas" className="relative py-24 md:py-32 bg-white/5 border-t border-white/10">
+      {/* --- Misión y Visión --- */}
+      <section id="mision-vision" className="relative py-24 md:py-32 bg-gradient-to-b from-white/5 to-transparent border-t border-white/10">
+        <Glow className="w-[45rem] h-[45rem] left-[-10rem] bottom-[-5rem] opacity-30" />
         <div className="px-6 md:px-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div>
-            <HeaderEyebrow 
-              title="Herramientas de Trabajo"
-              subtitle="Disponemos con las herramientas de varias marcas conocidas y prestigiosas para dar una buena calidad de servicio."
-            />
-          </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-white/70">
-            {tools.map((tool, i) => (
-              <motion.div 
+          {/* Misión */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.8 }} 
+            className="flex flex-col items-center text-center md:items-start md:text-left"
+          >
+             <Rocket className="w-10 h-10 text-orange-300 mb-4" />
+             <h3 className="text-3xl font-bold mb-3">Misión</h3>
+             <p className="text-white/80 text-lg leading-relaxed">
+                Crear y producir contenido audiovisual de calidad, impulsados por nuestra creatividad y pasión por el registro visual. Nos dedicamos a plasmar ideas y emociones con un alto nivel de compromiso y profesionalismo.
+             </p>
+           </motion.div>
+           {/* Visión */}
+           <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true, margin: "-15%" }}
+             transition={{ duration: 0.8, delay: 0.1 }}
+             className="flex flex-col items-center text-center md:items-start md:text-left"
+           >
+             <Eye className="w-10 h-10 text-orange-300 mb-4" />
+             <h3 className="text-3xl font-bold mb-3">Visión</h3>
+             <p className="text-white/80 text-lg leading-relaxed">
+                Ser una productora referente en la creación de narrativas audiovisuales que celebren y difundan la riqueza cultural y las historias de nuestro país, conectando con las audiencias locales y globales.
+             </p>
+           </motion.div>
+        </div>
+      </section>
+
+      {/* --- NUEVA SECCIÓN: Nuestros Valores --- */}
+      <section id="valores" className="relative py-24 md:py-32 border-t border-white/10">
+        <div className="px-6 md:px-10 max-w-7xl mx-auto">
+          <HeaderEyebrow title="Nuestros Valores" subtitle="Los pilares que guían cada decisión y proyecto." />
+          <div className="mt-10 grid md:grid-cols-3 gap-5">
+            {valores.map((v, i) => (
+              <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="flex items-center gap-3"
-              >
-                <Camera className="w-4 h-4 text-orange-300 flex-shrink-0" />
-                <span>{tool}</span>
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="rounded-3xl p-6 ring-1 ring-white/10 bg-white/5 hover:bg-white/10 transition-colors">
+                <v.icon className="w-7 h-7 text-orange-300" />
+                <h3 className="mt-4 text-xl font-semibold">{v.title}</h3>
+                <p className="mt-2 text-white/75">{v.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
       
-      {/* --- Nuestro Equipo (Componente original reutilizado) --- */}
+      {/* --- Nuestro Equipo (Se mantiene igual) --- */}
       <section id="equipo-nuclear" className="relative py-24 md:py-32 border-t border-white/10">
+         <Glow className="w-[40rem] h-[40rem] -right-32 top-10" />
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           <HeaderEyebrow title="Equipo nuclear" subtitle="Armamos células a medida con colaboradores de confianza." />
           <div className="mt-10 grid md:grid-cols-3 gap-6">
@@ -110,12 +192,13 @@ export default function NosotrosPage() {
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true }} 
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative overflow-hidden rounded-3xl ring-1 ring-white/10"
+                className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 group"
               >
-                <img src={p.photo} alt={p.name} className="h-80 w-full object-cover" />
-                <figcaption className="p-5 bg-white/5 backdrop-blur-sm">
-                  <div className="font-semibold">{p.name}</div>
-                  <div className="text-white/70 text-sm">{p.role}</div>
+                <img src={p.photo} alt={p.name} className="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"/>
+                <figcaption className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="font-semibold text-lg">{p.name}</div>
+                  <div className="text-white/80 text-sm">{p.role}</div>
                 </figcaption>
               </motion.figure>
             ))}

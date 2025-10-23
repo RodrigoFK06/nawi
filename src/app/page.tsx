@@ -69,7 +69,7 @@ function Hero() {
             className="space-y-8"
           >
             <h1 className="text-5xl md:text-7xl leading-[0.95] font-black tracking-tight">
-              <span className="block">ÑAWI</span>
+              
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">
                 CINE PARA DESPERTAR
               </span>
@@ -92,7 +92,7 @@ function Hero() {
       {/* Reel Modal */}
       {open && <ReelModal onClose={() => setOpen(false)} />}
 
-      <ScrollCue />
+      
     </section>
   );
 }
@@ -119,14 +119,7 @@ function ReelModal({ onClose }: { onClose: () => void }) {
   );
 }
 
-function ScrollCue() {
-  return (
-    <div className="absolute left-1/2 -translate-x-1/2 bottom-12 text-xs tracking-widest uppercase text-white/70">
-      <div className="h-10 w-[1px] mx-auto bg-gradient-to-b from-white/50 to-white/0 animate-pulse" />
-      Desliza
-    </div>
-  );
-}
+
 
 // ——————————————————————————————————————————————————————————
 // SELECTED WORKS (mosaic)
@@ -247,13 +240,6 @@ function WorkTile({
           )}
         </div>
       </div>
-
-      {/* Texto indicativo cuando está expandido */}
-      {isExpanded && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50 pointer-events-none">
-          Extender cuadro (video también acá)
-        </div>
-      )}
     </motion.article>
   );
 }
