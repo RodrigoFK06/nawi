@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion'; // Mantenemos motion
+// Quitamos motion por ahora
 
 type ImageItem = { id: string; src: string };
 
@@ -14,23 +14,26 @@ type MasonryImageItemProps = {
 };
 
 export function MasonryImageItem({ item, index, onClick }: MasonryImageItemProps) {
-  const aspect = index % 4 < 2 ? 'aspect-[4/3]' : 'aspect-[3/4]';
-
+  // Determinamos el aspect ratio y ANCHO (width) basado en el índice
+  // Necesitamos anchos explícitos para que Masonry calcule las columnas
+  const isWide = index % 4 === 0; // Ejemplo: hacer algunos items más anchos
+  const aspect = isWide ? 'aspect-[16/9]' : 'aspect-[3/4]'; // Ejemplo: Ancho vs Alto
+  
+  // Clases de Tailwind para el tamaño. Masonry usa el ancho para calcular columnas.
+  // Ajusta estos anchos según tu diseño de columnas (4 cols en desktop -> w-1/4, etc.)
+  // IMPORTANTE: Asegúrate de que estos anchos sean consistentes con columnWidth en MasonryGrid si lo usas.
+  // Usaremos porcentajes para adaptabilidad.
+  const widthClass = 'w-full'; // Dejamos que Masonry y el contenedor CSS Grid manejen el ancho ahora.
+  
+  // Añadimos la clase 'grid-item' que Masonry buscará
   return (
-    <motion.div
-      layout 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      // --- Asegúrate que break-inside-avoid está aquí ---
-      className={`relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 group ${aspect} cursor-pointer break-inside-avoid`} 
-      // -------------------------------------------------
-      whileHover={{ scale: 1.03, zIndex: 10 }} 
-      onClick={() => onClick(item.src)} 
+    <div
+      // --- CLASE IMPORTANTE ---
+      className={`grid-item relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 group ${aspect} ${widthClass} cursor-pointer mb-4 md:mb-6`} // Añadimos margen inferior para gap vertical
+      onClick={() => onClick(item.src)}
+      // Quitamos break-inside-avoid por ahora
     >
-      {/* ... (Componente Image y overlay) ... */}
-       <Image
+      <Image
         src={item.src}
         alt={`Imagen ${index + 1}`}
         fill
@@ -40,6 +43,6 @@ export function MasonryImageItem({ item, index, onClick }: MasonryImageItemProps
         draggable={false}
       />
       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
-    </motion.div>
+    </div>
   );
 }
