@@ -2,19 +2,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* otras opciones si las tienes */
+  // Configurar el root de turbopack para silenciar el warning
+  turbopack: {
+    root: process.cwd(),
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
-        // port: '', // Opcional, si usa un puerto específico
-        // pathname: '/image/upload/**', // Opcional, si quieres limitar a una ruta específica
+        hostname: 'images.unsplash.com',
       },
-      // --- IMPORTANTE ---
-      // Aquí deberás agregar los hostnames de donde
-      // cargarás tus imágenes reales en el futuro.
-      // Ejemplo si usas Cloudinary:
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+      // Agrega aquí otros hostnames si subes imágenes a servicios externos
       // {
       //   protocol: 'https',
       //   hostname: 'res.cloudinary.com',

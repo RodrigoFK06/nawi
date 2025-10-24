@@ -3,28 +3,42 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion'; // Ya no se importa Reorder
-import { PlayCircle, X } from 'lucide-react';
-import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PlayCircle } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Noise } from '@/components/Visuals';
 import { Lightbox } from '@/components/Lightbox';
-// --- Importación actualizada ---
 import { MasonryGrid } from '@/components/MasonryGrid';
+import { galleryImages } from '@/galleryImages';
 
-// --- CONFIGURACIÓN DEL HERO (sin cambios) ---
+// --- CONFIGURACIÓN DEL HERO ---
 const VIDEO_POSTER_URL = "/nawipreview.png";
 const VIDEO_SOURCE_URL = "/nawi.mp4";
 const YOUTUBE_LINK = "https://www.youtube.com/watch?v=XXXXXXXXX"; // <-- ¡¡REEMPLAZA ESTO!!
 const PROJECT_TITLE = "AYARANGA TIERRA AÑORADA";
 const PROJECT_TAG = "Documental";
 
-// --- DATOS PARA EL MOSAICO (ampliado a 30 imágenes por categoría) ---
+// --- DATOS PARA EL MOSAICO (usando imágenes reales, filtrando HEIC) ---
 const allImages = {
-  scouting: Array.from({ length: 30 }, (_, i) => ({ id: `scout-${i + 1}`, src: i % 3 === 0 ? `https://via.placeholder.com/800x600/222/888?text=Scout+${i + 1}` : `https://via.placeholder.com/600x800/222/888?text=Scout+${i + 1}` })),
-  momentos: Array.from({ length: 30 }, (_, i) => ({ id: `mom-${i + 1}`, src: i % 2 === 0 ? `https://via.placeholder.com/800x600/333/999?text=Mom+${i + 1}` : `https://via.placeholder.com/600x800/333/999?text=Mom+${i + 1}` })),
-  corte: Array.from({ length: 30 }, (_, i) => ({ id: `corte-${i + 1}`, src: i % 4 === 0 ? `https://via.placeholder.com/800x600/444/aaa?text=Corte+${i + 1}` : `https://via.placeholder.com/600x800/444/aaa?text=Corte+${i + 1}` })),
+  scouting: galleryImages
+    .filter(img => img.category === 'scouting' && !img.src.match(/\.(heic|HEIC)$/i))
+    .map(img => ({
+      id: img.id,
+      src: img.src
+    })),
+  momentos: galleryImages
+    .filter(img => img.category === 'momentos' && !img.src.match(/\.(heic|HEIC)$/i))
+    .map(img => ({
+      id: img.id,
+      src: img.src
+    })),
+  corte: galleryImages
+    .filter(img => img.category === 'corte' && !img.src.match(/\.(heic|HEIC)$/i))
+    .map(img => ({
+      id: img.id,
+      src: img.src
+    })),
 };
 
 type ImageItem = { id: string; src: string };
