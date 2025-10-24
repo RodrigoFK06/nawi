@@ -14,14 +14,6 @@ interface GalleryImage {
 
 export const galleryImages: GalleryImage[] = [
   {
-    "id": "IMG_2536.HEIC",
-    "src": "/1ER SCOUTING/IMG_2536.HEIC",
-    "alt": "IMG 2536",
-    "width": 4032,
-    "height": 3024,
-    "category": "scouting"
-  },
-  {
     "id": "IMG_2536.jpg",
     "src": "/1ER SCOUTING/IMG_2536.jpg",
     "alt": "IMG 2536",
@@ -302,27 +294,11 @@ export const galleryImages: GalleryImage[] = [
     "category": "momentos"
   },
   {
-    "id": "IMG_2128.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_2128.HEIC",
-    "alt": "IMG 2128",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
     "id": "IMG_2128.jpg",
     "src": "/MOMENTOS EN LA U/IMG_2128.jpg",
     "alt": "IMG 2128",
     "width": 3024,
     "height": 4032,
-    "category": "momentos"
-  },
-  {
-    "id": "IMG_2209.heic",
-    "src": "/MOMENTOS EN LA U/IMG_2209.heic",
-    "alt": "IMG 2209",
-    "width": 6048,
-    "height": 8064,
     "category": "momentos"
   },
   {
@@ -334,27 +310,11 @@ export const galleryImages: GalleryImage[] = [
     "category": "momentos"
   },
   {
-    "id": "IMG_2215.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_2215.HEIC",
-    "alt": "IMG 2215",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
     "id": "IMG_2215.jpg",
     "src": "/MOMENTOS EN LA U/IMG_2215.jpg",
     "alt": "IMG 2215",
     "width": 3024,
     "height": 4032,
-    "category": "momentos"
-  },
-  {
-    "id": "IMG_2216.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_2216.HEIC",
-    "alt": "IMG 2216",
-    "width": 4032,
-    "height": 3024,
     "category": "momentos"
   },
   {
@@ -366,27 +326,11 @@ export const galleryImages: GalleryImage[] = [
     "category": "momentos"
   },
   {
-    "id": "IMG_2533.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_2533.HEIC",
-    "alt": "IMG 2533",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
     "id": "IMG_2533.jpg",
     "src": "/MOMENTOS EN LA U/IMG_2533.jpg",
     "alt": "IMG 2533",
     "width": 3024,
     "height": 4032,
-    "category": "momentos"
-  },
-  {
-    "id": "IMG_2722.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_2722.HEIC",
-    "alt": "IMG 2722",
-    "width": 5712,
-    "height": 4284,
     "category": "momentos"
   },
   {
@@ -398,25 +342,9 @@ export const galleryImages: GalleryImage[] = [
     "category": "momentos"
   },
   {
-    "id": "IMG_3015.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_3015.HEIC",
-    "alt": "IMG 3015",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
     "id": "IMG_3015.jpg",
     "src": "/MOMENTOS EN LA U/IMG_3015.jpg",
     "alt": "IMG 3015",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
-    "id": "IMG_3016.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_3016.HEIC",
-    "alt": "IMG 3016",
     "width": 4032,
     "height": 3024,
     "category": "momentos"
@@ -430,25 +358,9 @@ export const galleryImages: GalleryImage[] = [
     "category": "momentos"
   },
   {
-    "id": "IMG_3018.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_3018.HEIC",
-    "alt": "IMG 3018",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
     "id": "IMG_3018.jpg",
     "src": "/MOMENTOS EN LA U/IMG_3018.jpg",
     "alt": "IMG 3018",
-    "width": 4032,
-    "height": 3024,
-    "category": "momentos"
-  },
-  {
-    "id": "IMG_3025.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_3025.HEIC",
-    "alt": "IMG 3025",
     "width": 4032,
     "height": 3024,
     "category": "momentos"
@@ -462,27 +374,11 @@ export const galleryImages: GalleryImage[] = [
     "category": "momentos"
   },
   {
-    "id": "IMG_3026.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_3026.HEIC",
-    "alt": "IMG 3026",
-    "width": 5712,
-    "height": 4284,
-    "category": "momentos"
-  },
-  {
     "id": "IMG_3026.jpg",
     "src": "/MOMENTOS EN LA U/IMG_3026.jpg",
     "alt": "IMG 3026",
     "width": 4284,
     "height": 5712,
-    "category": "momentos"
-  },
-  {
-    "id": "IMG_3036.HEIC",
-    "src": "/MOMENTOS EN LA U/IMG_3036.HEIC",
-    "alt": "IMG 3036",
-    "width": 5712,
-    "height": 4284,
     "category": "momentos"
   },
   {
@@ -622,14 +518,6 @@ export const galleryImages: GalleryImage[] = [
     "category": "corte"
   },
   {
-    "id": "IMG_2483.HEIC",
-    "src": "/1ER CORTE/IMG_2483.HEIC",
-    "alt": "IMG 2483",
-    "width": 4032,
-    "height": 3024,
-    "category": "corte"
-  },
-  {
     "id": "IMG_2483.jpg",
     "src": "/1ER CORTE/IMG_2483.jpg",
     "alt": "IMG 2483",
@@ -646,14 +534,6 @@ export const galleryImages: GalleryImage[] = [
     "category": "corte"
   },
   {
-    "id": "IMG_3236.HEIC",
-    "src": "/1ER CORTE/IMG_3236.HEIC",
-    "alt": "IMG 3236",
-    "width": 5712,
-    "height": 4284,
-    "category": "corte"
-  },
-  {
     "id": "IMG_3236.jpg",
     "src": "/1ER CORTE/IMG_3236.jpg",
     "alt": "IMG 3236",
@@ -662,27 +542,11 @@ export const galleryImages: GalleryImage[] = [
     "category": "corte"
   },
   {
-    "id": "IMG_3244.HEIC",
-    "src": "/1ER CORTE/IMG_3244.HEIC",
-    "alt": "IMG 3244",
-    "width": 4032,
-    "height": 3024,
-    "category": "corte"
-  },
-  {
     "id": "IMG_3244.jpg",
     "src": "/1ER CORTE/IMG_3244.jpg",
     "alt": "IMG 3244",
     "width": 3024,
     "height": 4032,
-    "category": "corte"
-  },
-  {
-    "id": "IMG_3248.HEIC",
-    "src": "/1ER CORTE/IMG_3248.HEIC",
-    "alt": "IMG 3248",
-    "width": 4032,
-    "height": 3024,
     "category": "corte"
   },
   {
