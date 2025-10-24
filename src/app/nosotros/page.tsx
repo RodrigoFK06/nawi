@@ -187,7 +187,7 @@ export default function NosotrosPage() {
         </div>
       </section>
       
-      {/* --- Nuestro Equipo (Se mantiene igual) --- */}
+      {/* --- Nuestro Equipo (Tarjetas cuadradas) --- */}
       <section id="equipo-nuclear" className="relative py-24 md:py-32 border-t border-white/10">
          <Glow className="w-[40rem] h-[40rem] -right-32 top-10" />
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
@@ -200,9 +200,9 @@ export default function NosotrosPage() {
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true }} 
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 group"
+                className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 group aspect-square"
               >
-                <div className="relative h-80 w-full">
+                <div className="relative w-full h-full">
                   <Image src={p.photo} alt={p.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"/>
