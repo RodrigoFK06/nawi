@@ -12,16 +12,17 @@ import { HeaderEyebrow } from "@/components/HeaderEyebrow";
 
 // Datos del equipo
 const teamPeople = [
-  { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
-  { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
-  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
-  { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
-  { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
-  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
-  { name: "Directora — A. Ramos", role: "Dirección / Guion", photo: "/nawi/team/a.jpg" },
-  { name: "Director — R. Torres", role: "Dirección / Foto", photo: "/nawi/team/b.jpg" },
-  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
-  { name: "Productor — M. Villafuerte", role: "Producción", photo: "/nawi/team/c.jpg" },
+  { name: "Lucero Llanque", role: "Dirección / Asistente de cámara", photo: "/EQUIPO/lucero llanque.png" },
+  { name: "Mafer Mija", role: "Producción", photo: "/EQUIPO/Maria Fernanda Mija.png" },
+  { name: "Claudia Garay", role: "Publicidad", photo: "/EQUIPO/Claudia Garay.png" },
+  { name: "Abigail Mendoza", role: "Dirección de Arte y jefa de Iluminación", photo: "/EQUIPO/Abigail Mendoza.png" },
+  { name: "Pamela Herrera", role: "Script y Asist. de Dir. de arte", photo: "/EQUIPO/Pamela Herrera.png" },
+  { name: "Rafel Cáceres", role: "Guionista, sonido y filmmaker bts", photo: "/EQUIPO/Rafaél Cáceres.png" },
+  { name: "Gerardo Serna", role: "Scouting y postproducción", photo: "/EQUIPO/Gerardo Serna.png" },
+  { name: "Emilio Quintanilla", role: "Asistente de edición", photo: "/EQUIPO/David Jara.png" },
+  { name: "David Jara", role: "Cámara", photo: "/EQUIPO/lucero llanque.png" },
+  { name: "Jusehf Martinez", role: "Iluminación", photo: "/EQUIPO/lucero llanque.png" },
+  
 ];
 
 // --- NUEVA SECCIÓN: Datos de Valores ---
