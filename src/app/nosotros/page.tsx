@@ -19,9 +19,9 @@ const teamPeople = [
   { name: "Pamela Herrera", role: "Script y Asist. de Dir. de arte", photo: "/EQUIPO/Pamela Herrera.png" },
   { name: "Rafel Cáceres", role: "Guionista, sonido y filmmaker bts", photo: "/EQUIPO/Rafaél Cáceres.png" },
   { name: "Gerardo Serna", role: "Scouting y postproducción", photo: "/EQUIPO/Gerardo Serna.png" },
-  { name: "Emilio Quintanilla", role: "Asistente de edición", photo: "/EQUIPO/lucero llanque.png" },
+  { name: "Emilio Quintanilla", role: "Asistente de edición", photo: "/EQUIPO/Emilio Quintanilla.png" },
   { name: "David Jara", role: "Cámara", photo: "/EQUIPO/David Jara.png" },
-  { name: "Jusehf Martinez", role: "Iluminación", photo: "/EQUIPO/lucero llanque.png" },
+  { name: "Jusehf Martinez", role: "Iluminación", photo: "/EQUIPO/Alessandro Martinez.png" },
   
 ];
 

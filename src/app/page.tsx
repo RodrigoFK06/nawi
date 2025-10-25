@@ -72,15 +72,17 @@ function Hero() {
             <h1 className="text-5xl md:text-7xl leading-[0.95] font-black tracking-tight">
               
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">
-                CINE PARA DESPERTAR
+                VISIÓN CREATIVA EN CADA HISTORIA
               </span>
             </h1>
             <div className="flex flex-wrap gap-4">
               <a
-                onClick={() => setOpen(true)}
-                className="cursor-pointer inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wider uppercase bg-white text-black hover:bg-zinc-200 transition"
+                href="https://www.youtube.com/@%C3%91AWI-productora"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wider uppercase bg-white text-black hover:bg-zinc-200 transition"
               >
-                <Clapperboard className="w-4 h-4" /> Ver reel
+                <Clapperboard className="w-4 h-4" /> Ver canal
               </a>
               <a href="#contacto" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wider uppercase border border-white/30 hover:border-white/60">
                 <Rocket className="w-4 h-4" /> Hablemos
