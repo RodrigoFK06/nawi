@@ -45,7 +45,7 @@ type ImageItem = { id: string; src: string };
 type TabKey = keyof typeof allImages;
 
 const tabs: { key: TabKey; title: string; date?: string }[] = [
-  { key: 'scouting', title: 'Primer Scouting', date: '01 SET 2025' },
+  { key: 'scouting', title: 'Primer Scouting' },
   { key: 'momentos', title: 'Momentos en la U' },
   { key: 'corte', title: 'Primer Corte' },
 ];
