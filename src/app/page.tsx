@@ -57,7 +57,7 @@ function Hero() {
 
       {/* --- NAVEGACIÓN ACTUALIZADA --- */}
       <div className="absolute top-0 left-0 right-0">
-        <Navigation />
+        <Navigation showMobileMenu={true} />
       </div>
       {/* ------------------------------- */}
 

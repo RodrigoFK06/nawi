@@ -16,7 +16,11 @@ const navLinks = [
   { href: "/#contacto", label: "Contacto" },
 ];
 
-export function Navigation() {
+type NavigationProps = {
+  showMobileMenu?: boolean;
+};
+
+export function Navigation({ showMobileMenu = false }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -33,46 +37,25 @@ export function Navigation() {
           ))}
         </nav>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-50 p-2 rounded-xl bg-white/5 backdrop-blur-sm ring-1 ring-white/10 hover:bg-white/10 transition-colors"
-          aria-label="Toggle menu"
-        >
-          <motion.div
-            animate={isOpen ? "open" : "closed"}
-            className="w-6 h-6 flex items-center justify-center"
+        {/* Mobile Hamburger Button - Solo visible si showMobileMenu es true */}
+        {showMobileMenu && !isOpen && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => setIsOpen(true)}
+            className="md:hidden relative z-[9999] p-2 rounded-xl bg-white/5 backdrop-blur-sm ring-1 ring-white/10 hover:bg-white/10 transition-colors"
+            aria-label="Open menu"
           >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="w-6 h-6" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="w-6 h-6" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        </button>
+            <Menu className="w-6 h-6" />
+          </motion.button>
+        )}
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
+      {/* Mobile Menu Overlay - Solo se renderiza si showMobileMenu es true */}
+      {showMobileMenu && (
+        <AnimatePresence>
+          {isOpen && (
           <>
             {/* Backdrop */}
             <motion.div
@@ -80,7 +63,7 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] md:hidden"
               onClick={() => setIsOpen(false)}
             />
 
@@ -90,7 +73,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl z-50 md:hidden"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl z-[9999] md:hidden"
               style={{
                 boxShadow: "0 0 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
               }}
@@ -101,7 +84,7 @@ export function Navigation() {
               {/* Close Button (top right inside panel) */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 backdrop-blur-sm ring-1 ring-white/10 hover:bg-white/10 transition-colors"
+                className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 backdrop-blur-sm ring-1 ring-white/10 hover:bg-white/10 transition-colors z-10"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
@@ -138,6 +121,7 @@ export function Navigation() {
           </>
         )}
       </AnimatePresence>
+      )}
     </div>
   );
 }

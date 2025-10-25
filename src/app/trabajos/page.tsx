@@ -65,7 +65,7 @@ export default function TrabajosPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden selection:bg-orange-500/40 selection:text-white">
       <Noise />
-      <header className="absolute top-0 left-0 right-0 z-20 bg-black/30 backdrop-blur-sm border-b border-white/10">
+      <header className="absolute top-0 left-0 right-0 z-10 bg-black/30 backdrop-blur-sm border-b border-white/10">
         <Navigation />
       </header>
 
