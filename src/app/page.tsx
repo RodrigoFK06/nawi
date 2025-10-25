@@ -71,7 +71,7 @@ function Hero() {
           >
             <h1 className="text-5xl md:text-7xl leading-[0.95] font-black tracking-tight">
               
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ff3399] via-[#ff5d31] to-[#ffb531]">
                 VISIÓN CREATIVA EN CADA HISTORIA
               </span>
             </h1>
